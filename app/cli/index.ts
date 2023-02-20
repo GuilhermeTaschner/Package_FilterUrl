@@ -22,7 +22,7 @@ async function printText(data: string | result[], archive?: string, validate?: b
 
 }
 
-async function processText(argumentsPath: string[]) {
+export default async function processText(argumentsPath: string[]) {
     const path = argumentsPath[2];
     const validate = argumentsPath[3] === '--validation'
     try {
