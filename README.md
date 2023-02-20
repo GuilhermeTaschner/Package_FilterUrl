@@ -1,6 +1,6 @@
 <header>
   <h1>How to install</h1>
-  <p><b>1. Download with</b>: npm i filter-text-with-url</p>
+  <p><b>1. Download with</b>: npm i filter-text-urls</p>
 </header>
 <main>
   <h1>How to use</h1>

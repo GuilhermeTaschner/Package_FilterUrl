@@ -1,5 +1,5 @@
 {
-  "name": "filter-text-with-url",
+  "name": "filter-text-urls",
   "version": "1.0.0",
   "description": "Filter url from text and test status-http",
   "keywords": ["markdown", "URL", "filter", "text", "status-http"],
