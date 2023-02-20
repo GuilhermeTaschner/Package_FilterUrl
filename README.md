@@ -1,11 +1,10 @@
 <header>
   <h1>How to install</h1>
-  <p><b>1. Download the project using</b>: git clone https://github.com/GuilhermeTaschner/Package_FilterUrl.git</p>
-  <p><b>2. In VsCode terminal write</b>: npm install</p>
+  <p><b>1. Download with</b>: npm i filter-text-with-url</p>
 </header>
 <main>
   <h1>How to use</h1>
-  <p><b>1. To links without verification write in terminal:</b> npm run start [file name or directory name]</p>
+  <p><b>1. To links without verification write in terminal:</b> npm run filter [file name or directory name]</p>
   <p><b>2. To links with verification status http write:</b>node dist/cli/index.js [file name or directory name] --validation</p>
   <br>
   
