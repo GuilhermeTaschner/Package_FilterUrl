@@ -1,26 +1,32 @@
-<header>
-  <h1>How to install</h1>
-  <p><b>1. Download with</b>: npm i filter-text-urls</p>
-</header>
-<main>
-  <h1>How to use</h1>
-  <p><b>1. To links without verification write in terminal:</b> npm run filter [file name or directory name]</p>
-  <p><b>2. To links with verification status http write:</b>node dist/cli/index.js [file name or directory name] --validation</p>
+# How to install</h1>
+~~~javascript
+npm i filter-text-urls
+~~~
+
+# How to use</h1>
+<b>1. You need to call processText function inside an async function</b>
+<b>2. The function takes as parameters:</b>
+<li>1. arguments: file path, directory path or even texts;</li>
+<li>2. validation: checks the http status of the links - it is only necessary to pass a boolean conditional;</li>
+<li>3. HTTP: if you just want to do the regex for http links without references [ ] - to use it, you need to pass a boolean conditional;</li>
   <br>
   
-  <h2>Example 1</h2>
-  <p>npm run start arquivos/texto.md</p>
+# Example 1</h2>
+<b>Create a new index.js</b></p>
+<b>Paste the code below and run:</b> node [path to index.js]</p>
+<b>!Important: Don't forget to type the path/index.js</b></span>
+
+  ~~~javascript
+  import processText from './dist/cli/index.js';
+  async function TEST() {
+    const result = await processText('./node_modules/filter-text-urls/archive/texto.md');
+    console.log(result);
+  }
+  TEST()
+  ~~~
+  
   <div align="center">
   <h3>Expect</h3>
   <img src="https://user-images.githubusercontent.com/107483516/220187605-f50d6129-fd55-483f-bbb2-bb73147b6a45.png" />
   </div>
   <br>
-  <h2>Example 2</h2>
-  <p>node dist/cli/index.js arquivos --validation</p>
-  <div align="center">
-  <h3>Expect</h3>
-  <img src="https://user-images.githubusercontent.com/107483516/220189839-0f0cc38e-91e1-42c3-8be4-f914f73956bf.png" />
-  </div>
-  <br>
-  <br>
-</main>
