@@ -2,7 +2,7 @@ import * as fs from 'fs';
 function fsError(error) {
     throw new Error((`${error.code} Falha ao buscar arquivo:`));
 }
-function extractorLink(text) {
+export function extractorLink(text) {
     const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
     const getLinks = [...text.matchAll(regex)];
     const result = getLinks.map(Link => ({ [Link[1]]: Link[2] }));

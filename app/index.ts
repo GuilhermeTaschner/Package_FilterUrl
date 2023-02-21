@@ -5,7 +5,7 @@ function fsError(error: any) {
     throw new Error((`${error.code} Falha ao buscar arquivo:`))
 }
 
-function extractorLink(text: string): result[] | string {
+export function extractorLink(text: string): result[] | string {
     const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm
     const getLinks = [...text.matchAll(regex)]
     const result = getLinks.map(Link => ({[Link[1]]: Link[2]}))

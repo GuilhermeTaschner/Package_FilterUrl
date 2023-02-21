@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import getData from "../index.js";
+import getData, { extractorLink } from "../index.js";
 import validateList from '../RequestHTTP/validation-http.js';
 import { result } from './../index.d';
 
@@ -10,6 +10,13 @@ export default async function processText(argumentsPath: string, validation?: bo
     } catch (error){
         if(error.code === 'ENOENT'){
             console.error("Arquivo ou diretorio nao existe")
+            try {
+                const extract = extractorLink(path)
+                return validation ? await validateList(extract as result[]) : extract
+            }
+            catch (error){
+                console.log("Argumentos inesperados")
+            }
             return
         }
         else {
