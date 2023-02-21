@@ -1,9 +1,8 @@
-import { result } from './index.d';
 import * as fs from 'fs';
-import chalk from "chalk";
+import { result } from './index.d';
 
 function fsError(error: any) {
-    throw new Error(chalk.red(`${error.code} Falha ao buscar arquivo:`))
+    throw new Error((`${error.code} Falha ao buscar arquivo:`))
 }
 
 function extractorLink(text: string): result[] | string {

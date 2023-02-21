@@ -1,19 +1,8 @@
-import chalk from 'chalk';
 import * as fs from 'fs';
 import getData from "../index.js";
 import validateList from '../RequestHTTP/validation-http.js';
-const path = process.argv;
-async function printText(data, archive, validate) {
-    if (validate) {
-        console.log(chalk.yellow(`"Lista validada": `), chalk.black.bgGreenBright(archive), await validateList(data));
-    }
-    else {
-        console.log(chalk.yellow(`"Lista de links": `), chalk.black.bgGreenBright(archive), data);
-    }
-}
-async function processText(argumentsPath) {
-    const path = argumentsPath[2];
-    const validate = argumentsPath[3] === '--validation';
+export default async function processText(argumentsPath, validation) {
+    const path = argumentsPath;
     try {
         fs.lstatSync(path);
     }
@@ -27,16 +16,16 @@ async function processText(argumentsPath) {
             return;
         }
     }
-    if (fs.lstatSync(path).isFile()) {
+    const stats = fs.lstatSync(path);
+    if (stats.isFile()) {
         const data = await getData(path);
-        printText(data, path, validate);
+        return validation ? await validateList(data) : data;
     }
-    else if (fs.lstatSync(path).isDirectory()) {
+    else if (stats.isDirectory()) {
         const archives = await fs.promises.readdir(path);
-        archives.forEach(async (archive) => {
+        return Promise.all(archives.map(async (archive) => {
             const list = await getData(`${path}/${archive}`);
-            printText(list, archive, validate);
-        });
+            return validation ? await validateList(list) : list;
+        }));
     }
 }
-processText(path);

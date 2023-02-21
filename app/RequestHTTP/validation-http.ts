@@ -32,6 +32,6 @@ function controllerError(error: any): string  {
     if(error.cause.code === "ENOTFOUND"){
         return "link nao encontrado"
     } else {
-        return "erro inesperado"
+        return "erro"
     }
 }

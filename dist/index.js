@@ -1,7 +1,6 @@
 import * as fs from 'fs';
-import chalk from "chalk";
 function fsError(error) {
-    throw new Error(chalk.red(`${error.code} Falha ao buscar arquivo:`));
+    throw new Error((`${error.code} Falha ao buscar arquivo:`));
 }
 function extractorLink(text) {
     const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;

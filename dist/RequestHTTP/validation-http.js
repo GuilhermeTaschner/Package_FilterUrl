@@ -24,6 +24,6 @@ function controllerError(error) {
         return "link nao encontrado";
     }
     else {
-        return "erro inesperado";
+        return "erro";
     }
 }

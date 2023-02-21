@@ -2,7 +2,13 @@
   "name": "filter-text-urls",
   "version": "1.0.0",
   "description": "Filter url from text and test status-http",
-  "keywords": ["markdown", "URL", "filter", "text", "status-http"],
+  "keywords": [
+    "markdown",
+    "URL",
+    "filter",
+    "text",
+    "status-http"
+  ],
   "main": "./dist/index.js",
   "type": "module",
   "bin": {
@@ -11,7 +17,6 @@
   "preferGlobal": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "filter": "node dist/cli/index.js",
     "compile": "tsc",
     "watch": "tsc -w"
   },
@@ -26,7 +31,6 @@
   },
   "homepage": "https://github.com/GuilhermeTaschner/Package_FilterUrl#readme",
   "dependencies": {
-    "chalk": "^5.2.0",
     "concurrently": "^7.6.0"
   },
   "devDependencies": {
