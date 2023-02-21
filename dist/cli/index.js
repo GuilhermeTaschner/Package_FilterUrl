@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import getData, { extractorLink } from "../index.js";
 import validateList from '../RequestHTTP/validation-http.js';
-export default async function processText(argumentsPath, validation) {
+export default async function processText(argumentsPath, validation, HTTP) {
     const path = argumentsPath;
     try {
         fs.lstatSync(path);
@@ -10,7 +10,7 @@ export default async function processText(argumentsPath, validation) {
         if (error.code === 'ENOENT') {
             console.error("Arquivo ou diretorio nao existe");
             try {
-                const extract = extractorLink(path);
+                const extract = extractorLink(path, HTTP);
                 return validation ? await validateList(extract) : extract;
             }
             catch (error) {
@@ -25,13 +25,13 @@ export default async function processText(argumentsPath, validation) {
     }
     const stats = fs.lstatSync(path);
     if (stats.isFile()) {
-        const data = await getData(path);
+        const data = await getData(path, HTTP);
         return validation ? await validateList(data) : data;
     }
     else if (stats.isDirectory()) {
         const archives = await fs.promises.readdir(path);
         return Promise.all(archives.map(async (archive) => {
-            const list = await getData(`${path}/${archive}`);
+            const list = await getData(`${path}/${archive}`, HTTP);
             return validation ? await validateList(list) : list;
         }));
     }
