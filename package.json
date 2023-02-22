@@ -1,6 +1,6 @@
 {
   "name": "filter-text-urls",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Filter url from text and test status-http",
   "keywords": [
     "markdown",
