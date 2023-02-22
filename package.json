@@ -1,6 +1,6 @@
 {
   "name": "filter-text-urls",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Filter url from text and test status-http",
   "keywords": [
     "markdown",
@@ -9,7 +9,7 @@
     "text",
     "status-http"
   ],
-  "main": "./dist/index.js",
+  "main": "./dist/cli/index.js",
   "type": "module",
   "bin": {
     "filter-text-with-url": "./cli.js"
